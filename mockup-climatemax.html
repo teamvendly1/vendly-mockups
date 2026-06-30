@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClimateMax — Heating &amp; Air, Same-Day Comfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0e3a63; --navy2:#134a7c; --orange:#E8533A; --orange2:#ff6a4f;
+  --ink:#10202e; --muted:#5a6875; --line:#e3eaf1; --cream:#f2f7fc; --white:#fff;
+  --head:"Sora",system-ui,sans-serif; --body:"Plus Jakarta Sans",system-ui,sans-serif;
+  --shadow:0 30px 70px rgba(14,58,99,.16);
+  --blue:#1E6FB8;
+  /* free stock photos (Unsplash) with gradient fallback behind each */
+  /* Replace this photo: swap the Unsplash URL for your own image */
+  --hero-img:url("https://images.unsplash.com/photo-1631545806609-c2b999cd8d6e?auto=format&fit=crop&w=1600&q=80");
+  /* Replace this photo: swap the Unsplash URL for your own image */
+  --crew-img:url("https://images.unsplash.com/photo-1635048424329-a9bfb146d7aa?auto=format&fit=crop&w=1400&q=80");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.07;letter-spacing:-.02em}
+a{text-decoration:none;color:inherit}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange);color:#fff;font-family:var(--body);font-weight:700;font-size:1rem;padding:15px 28px;border-radius:12px;border:0;cursor:pointer;transition:transform .18s,box-shadow .18s;box-shadow:0 12px 28px rgba(232,83,58,.4)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(232,83,58,.5)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;box-shadow:none;border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:40;background:rgba(14,58,99,.96);backdrop-filter:blur(10px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;color:#fff}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--head);font-weight:800;font-size:1.32rem;color:#fff}
+.brand .anchor{width:38px;height:38px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:#cfe0f0;font-size:.95rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:#fff;font-weight:800;font-size:1.05rem}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;color:#fff;padding:96px 0 110px;background:var(--navy)}
+.hero::before{content:"";position:absolute;inset:0;background:var(--hero-img) center/cover no-repeat;opacity:.24}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,var(--navy) 38%,rgba(14,58,99,.72) 100%)}
+.hero .wrap{position:relative;z-index:1;max-width:760px}
+.hero .tagchip{display:inline-block;background:rgba(232,83,58,.2);color:#ffd0c6;font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:22px}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem)}
+.hero h1 .o{color:var(--orange2)}
+.hero p.sub{font-size:1.18rem;color:#d2e2f0;margin:20px 0 32px;max-width:580px}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+.hero .micro{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;color:#b3c8dc;font-size:.92rem;font-weight:600}
+.hero .micro span{display:inline-flex;align-items:center;gap:8px}
+.hero .micro .d{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+
+/* trust strip */
+.trust{background:var(--navy2);color:#fff;border-top:1px solid rgba(255,255,255,.08)}
+.trust .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:22px 28px}
+.trust .t{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.96rem}
+.trust .t .ic{color:var(--orange2);font-size:1.1rem}
+
+/* sections */
+.sec{padding:92px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head .eb{color:var(--blue);font-weight:800;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+.sec-head h2{font-size:clamp(2rem,4.4vw,2.9rem);margin:12px 0 12px}
+.sec-head p{color:var(--muted);font-size:1.08rem}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:transform .22s,box-shadow .22s,border-color .22s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.svc .ic{width:52px;height:52px;border-radius:13px;background:rgba(30,111,184,.12);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+.svc h3{font-size:1.28rem;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:.96rem}
+
+/* photo band */
+.band{position:relative;min-height:420px;display:flex;align-items:center;background:var(--navy)}
+.band::before{content:"";position:absolute;inset:0;background:var(--crew-img) center/cover no-repeat;opacity:.4}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 30%,transparent)}
+.band .wrap{position:relative;z-index:1;color:#fff}
+.band h2{font-size:clamp(1.9rem,4vw,2.7rem);max-width:560px}
+.band p{color:#d2e2f0;max-width:480px;margin-top:14px;font-size:1.08rem}
+
+/* why */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+.why .item{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.why .item .ck{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.why .item h3{font-size:1.12rem;margin-bottom:4px}
+.why .item p{color:var(--muted);font-size:.94rem}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+.rev .stars{color:#f5b301;font-size:1.05rem;letter-spacing:2px;margin-bottom:12px}
+.rev p{font-size:1rem;color:#28333d;margin-bottom:16px}
+.rev .who{font-weight:700}
+.rev .who small{display:block;color:var(--muted);font-weight:500}
+
+/* cta */
+.cta{background:var(--navy);color:#fff;text-align:center;padding:88px 0}
+.cta h2{font-size:clamp(2rem,4.6vw,3rem);margin-bottom:14px}
+.cta p{color:#d2e2f0;font-size:1.12rem;margin-bottom:28px}
+.cta .ph{margin-top:22px;font-family:var(--head);font-size:1.5rem;font-weight:800}
+.cta .ph a{color:var(--orange2)}
+
+/* footer */
+footer{background:#0a2c4d;color:#9bb4cb;padding:60px 0 28px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fgrid .brand{color:#fff;margin-bottom:14px}
+.fcol h4{color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.fcol a{display:block;color:#9bb4cb;font-size:.95rem;margin-bottom:9px}
+.fcol a:hover{color:var(--orange2)}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.85rem;color:#6e87a0}
+.fbot .vendly{color:#cfe0f0;font-weight:700}
+.fbot .vendly b{color:var(--orange2)}
+
+@media(max-width:860px){.grid3,.revs{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand"><span class="anchor">🏔</span> ClimateMax</div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-phone">Get a free quote</a>
+  </div>
+</header>
+
+<!-- Replace this photo: swap the Unsplash URL for your own image -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tagchip reveal">Same-day comfort · Honest pricing</span>
+    <h1 class="reveal">Total comfort, <span class="o">maximum efficiency</span> — heating &amp; air, same day.</h1>
+    <p class="sub reveal">AC out in the heat? Furnace down in the cold? We diagnose fast, tell you the honest price up front, and get your home comfortable again — often the very same day.</p>
+    <div class="hero-cta reveal">
+      <a href="#contact" class="btn">Get a free quote</a>
+      <a href="#contact" class="btn btn-ghost">Get a free estimate</a>
+    </div>
+    <div class="micro reveal">
+      <span><i class="d"></i> Licensed &amp; insured</span>
+      <span><i class="d"></i> Honest, up-front pricing</span>
+      <span><i class="d"></i> Same-day &amp; emergency service</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="t"><span class="ic">★</span> 4.9 rating, 200+ reviews</div>
+    <div class="t"><span class="ic">🛡</span> Licensed &amp; insured</div>
+    <div class="t"><span class="ic">⏱</span> Same-day &amp; emergency</div>
+    <div class="t"><span class="ic">＄</span> Honest pricing</div>
+  </div>
+</div>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eb">What we do</div>
+      <h2>Comfort in every season</h2>
+      <p>Heating, cooling, and the air you breathe. Whatever your system needs, we keep your home comfortable year-round.</p>
+    </div>
+    <div class="grid3">
+      <div class="svc reveal"><div class="ic">❄️</div><h3>AC repair &amp; install</h3><p>Warm air or no air? We fix it fast or install a new system sized right for your home.</p></div>
+      <div class="svc reveal"><div class="ic">🔥</div><h3>Heating &amp; furnace</h3><p>No heat when you need it most? We repair and replace furnaces and heat pumps.</p></div>
+      <div class="svc reveal"><div class="ic">🛠️</div><h3>Tune-ups &amp; maintenance</h3><p>Seasonal tune-ups that keep your system efficient and head off breakdowns.</p></div>
+      <div class="svc reveal"><div class="ic">🌬️</div><h3>Indoor air quality</h3><p>Filtration, humidifiers, and purifiers for cleaner, healthier air at home.</p></div>
+      <div class="svc reveal"><div class="ic">📐</div><h3>Ductwork</h3><p>Leaky or uneven airflow? We seal, repair, and design ducts for even comfort.</p></div>
+      <div class="svc reveal"><div class="ic">⚠️</div><h3>Emergency service</h3><p>No heat or no AC and can't wait? We answer the phone and come out fast.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Replace this photo: swap the Unsplash URL for your own image -->
+<section class="band">
+  <div class="wrap reveal">
+    <h2>Honest comfort from a local you can trust</h2>
+    <p>We diagnose the real problem and quote it straight — no scare tactics, no upsells. When you call, you get us, not a call center.</p>
+  </div>
+</section>
+
+<section class="sec why" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eb">Why choose us</div>
+      <h2>No surprises, start to finish</h2>
+    </div>
+    <div class="why-grid">
+      <div class="item reveal"><div class="ck">✓</div><div><h3>Honest, up-front pricing</h3><p>You know the cost before we start. No surprise bills.</p></div></div>
+      <div class="item reveal"><div class="ck">✓</div><div><h3>Same-day service</h3><p>We move fast to get your heating or cooling back online today.</p></div></div>
+      <div class="item reveal"><div class="ck">✓</div><div><h3>Licensed, insured, guaranteed</h3><p>Certified techs and work backed by a satisfaction guarantee.</p></div></div>
+      <div class="item reveal"><div class="ck">✓</div><div><h3>We respect your home</h3><p>Shoe covers, drop cloths, and a clean job site every time.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eb">Reviews</div>
+      <h2>What your neighbors say</h2>
+    </div>
+    <div class="revs">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Our AC died in a heat wave and they had us cool again by that afternoon. Quoted the price up front and stuck to it. Lifesavers."</p><div class="who">Dana R. <small>Local customer</small></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Furnace quit on the coldest night of the year. They came out, found the issue fast, and didn't try to sell me a whole new unit. Honest people."</p><div class="who">Marcus T. <small>Local customer</small></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Signed up for their maintenance plan and the difference is night and day. Friendly, on time, and they actually explain things. Highly recommend."</p><div class="who">Priya N. <small>Local customer</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Too hot or too cold? Let's fix your comfort.</h2>
+    <p>Call or text for a free estimate. We answer fast and we don't charge to come take a look.</p>
+    <a href="#contact" class="btn">Get a free quote</a>
+    <div class="ph">or request your free quote <a href="#contact">Get a free quote</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="display:flex;align-items:center;gap:11px;font-family:var(--head);font-weight:800;font-size:1.3rem"><span style="width:36px;height:36px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center">🏔</span> ClimateMax</div>
+        <p style="max-width:280px">Licensed, insured heating and air techs serving your area. Same-day service and emergency repairs.</p>
+      </div>
+      <div class="fcol"><h4>Services</h4><a href="#services">AC repair</a><a href="#services">Heating</a><a href="#services">Maintenance</a><a href="#services">Emergencies</a></div>
+      <div class="fcol"><h4>Company</h4><a href="#why">Why us</a><a href="#reviews">Reviews</a><a href="#contact">Free estimate</a><a href="#contact">Get a free quote</a></div>
+    </div>
+    <div class="fbot">
+      <div>© 2026 ClimateMax. Serving your area and nearby.</div>
+      <div class="vendly">Built with a <b>Vendly</b> template</div>
+      <div class="vendly" style="font-weight:500">Preview mockup designed by <b>Vendly</b> for ClimateMax. vendly.ink</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  els.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*55)+'ms';io.observe(el)});
+  // safety net: anything not yet revealed becomes visible so no content can stay hidden
+  setTimeout(()=>els.forEach(el=>el.classList.add('in')),2000);
+}else els.forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
