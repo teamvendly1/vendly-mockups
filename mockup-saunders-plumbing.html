@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saunders Plumbing — Licensed Plumber, Same-Day Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0c2740; --navy2:#103355; --orange:#F26419; --orange2:#ff7a2e;
+  --ink:#13202c; --muted:#5d6b78; --line:#e6ebf0; --cream:#f6f9fc; --white:#fff;
+  --head:"Sora",system-ui,sans-serif; --body:"Plus Jakarta Sans",system-ui,sans-serif;
+  --shadow:0 30px 70px rgba(12,39,64,.16);
+  /* free stock photos (Unsplash) with gradient fallback behind each */
+  /* Replace this photo: swap the Unsplash URL for your own image */
+  --hero-img:url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1600&q=80");
+  /* Replace this photo: swap the Unsplash URL for your own image */
+  --crew-img:url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1400&q=80");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.07;letter-spacing:-.02em}
+a{text-decoration:none;color:inherit}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--orange);color:#fff;font-family:var(--body);font-weight:700;font-size:1rem;padding:15px 28px;border-radius:12px;border:0;cursor:pointer;transition:transform .18s,box-shadow .18s;box-shadow:0 12px 28px rgba(242,100,25,.4)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(242,100,25,.5)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;box-shadow:none;border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:40;background:rgba(12,39,64,.96);backdrop-filter:blur(10px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;color:#fff}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--head);font-weight:800;font-size:1.32rem;color:#fff}
+.brand .anchor{width:38px;height:38px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:#cfdae6;font-size:.95rem;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:#fff}
+.nav-phone{color:#fff;font-weight:800;font-size:1.05rem}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;color:#fff;padding:96px 0 110px;background:var(--navy)}
+.hero::before{content:"";position:absolute;inset:0;background:var(--hero-img) center/cover no-repeat;opacity:.26}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,var(--navy) 38%,rgba(12,39,64,.72) 100%)}
+.hero .wrap{position:relative;z-index:1;max-width:760px}
+.hero .tagchip{display:inline-block;background:rgba(242,100,25,.2);color:#ffd9c2;font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:22px}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.1rem)}
+.hero h1 .o{color:var(--orange2)}
+.hero p.sub{font-size:1.18rem;color:#d4dfea;margin:20px 0 32px;max-width:580px}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+.hero .micro{margin-top:26px;display:flex;gap:22px;flex-wrap:wrap;color:#b9c6d4;font-size:.92rem;font-weight:600}
+.hero .micro span{display:inline-flex;align-items:center;gap:8px}
+.hero .micro .d{width:7px;height:7px;border-radius:50%;background:var(--orange)}
+
+/* trust strip */
+.trust{background:var(--navy2);color:#fff;border-top:1px solid rgba(255,255,255,.08)}
+.trust .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;padding:22px 28px}
+.trust .t{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.96rem}
+.trust .t .ic{color:var(--orange2);font-size:1.1rem}
+
+/* sections */
+.sec{padding:92px 0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head .eb{color:var(--orange);font-weight:800;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+.sec-head h2{font-size:clamp(2rem,4.4vw,2.9rem);margin:12px 0 12px}
+.sec-head p{color:var(--muted);font-size:1.08rem}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:transform .22s,box-shadow .22s,border-color .22s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.svc .ic{width:52px;height:52px;border-radius:13px;background:rgba(242,100,25,.12);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px}
+.svc h3{font-size:1.28rem;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:.96rem}
+
+/* photo band */
+.band{position:relative;min-height:420px;display:flex;align-items:center;background:var(--navy)}
+.band::before{content:"";position:absolute;inset:0;background:var(--crew-img) center/cover no-repeat;opacity:.4}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 30%,transparent)}
+.band .wrap{position:relative;z-index:1;color:#fff}
+.band h2{font-size:clamp(1.9rem,4vw,2.7rem);max-width:560px}
+.band p{color:#d4dfea;max-width:480px;margin-top:14px;font-size:1.08rem}
+
+/* why */
+.why{background:var(--cream)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+.why .item{display:flex;gap:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.why .item .ck{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.why .item h3{font-size:1.12rem;margin-bottom:4px}
+.why .item p{color:var(--muted);font-size:.94rem}
+
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+.rev .stars{color:#f5b301;font-size:1.05rem;letter-spacing:2px;margin-bottom:12px}
+.rev p{font-size:1rem;color:#28333d;margin-bottom:16px}
+.rev .who{font-weight:700}
+.rev .who small{display:block;color:var(--muted);font-weight:500}
+
+/* cta */
+.cta{background:var(--navy);color:#fff;text-align:center;padding:88px 0}
+.cta h2{font-size:clamp(2rem,4.6vw,3rem);margin-bottom:14px}
+.cta p{color:#d4dfea;font-size:1.12rem;margin-bottom:28px}
+.cta .ph{margin-top:22px;font-family:var(--head);font-size:1.5rem;font-weight:800}
+.cta .ph a{color:var(--orange2)}
+
+/* footer */
+footer{background:#081d30;color:#9fb2c4;padding:60px 0 28px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+.fgrid .brand{color:#fff;margin-bottom:14px}
+.fcol h4{color:#fff;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.fcol a{display:block;color:#9fb2c4;font-size:.95rem;margin-bottom:9px}
+.fcol a:hover{color:var(--orange2)}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;font-size:.85rem;color:#6f8295}
+.fbot .vendly{color:#cfdae6;font-weight:700}
+.fbot .vendly b{color:var(--orange2)}
+
+@media(max-width:860px){.grid3,.revs{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand"><span class="anchor">⚓</span> Saunders Plumbing</div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-phone">Get a free quote</a>
+  </div>
+</header>
+
+<!-- Replace this photo: swap the Unsplash URL for your own image -->
+<section class="hero">
+  <div class="wrap">
+    <span class="tagchip reveal">Same-day service · Licensed &amp; insured</span>
+    <h1 class="reveal">Licensed plumbers you can <span class="o">count on.</span> Done right, the first time.</h1>
+    <p class="sub reveal">Leaks, clogs, water heaters, burst pipes. We show up when we say we will, fix it right, and tell you the price before we start. No surprises on the bill.</p>
+    <div class="hero-cta reveal">
+      <a href="#contact" class="btn">Get a free quote</a>
+      <a href="#contact" class="btn btn-ghost">Get a free estimate</a>
+    </div>
+    <div class="micro reveal">
+      <span><i class="d"></i> Licensed &amp; insured</span>
+      <span><i class="d"></i> Up-front pricing</span>
+      <span><i class="d"></i> 24/7 emergency service</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="t"><span class="ic">★</span> 4.9 rating, 200+ reviews</div>
+    <div class="t"><span class="ic">🛡</span> Licensed &amp; insured</div>
+    <div class="t"><span class="ic">⏱</span> Same-day &amp; emergency</div>
+    <div class="t"><span class="ic">＄</span> Up-front pricing</div>
+  </div>
+</div>
+
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eb">What we do</div>
+      <h2>Plumbing done right, the first time</h2>
+      <p>From a dripping faucet to a full repipe, we handle it. Here are the calls we get most.</p>
+    </div>
+    <div class="grid3">
+      <div class="svc reveal"><div class="ic">🚿</div><h3>Drain &amp; sewer cleaning</h3><p>Slow drains and backups cleared fast, with no mess left behind.</p></div>
+      <div class="svc reveal"><div class="ic">🔥</div><h3>Water heater repair</h3><p>No hot water? We diagnose and repair or replace, same-day in most cases.</p></div>
+      <div class="svc reveal"><div class="ic">💧</div><h3>Leak detection &amp; repair</h3><p>We find the leak, fix it, and check for damage before it gets worse.</p></div>
+      <div class="svc reveal"><div class="ic">🚽</div><h3>Toilets &amp; faucets</h3><p>Installs, repairs, and replacements for fixtures throughout your home.</p></div>
+      <div class="svc reveal"><div class="ic">🔧</div><h3>Repiping &amp; remodels</h3><p>Old pipes or a kitchen redo? We plan it clean and build it to last.</p></div>
+      <div class="svc reveal"><div class="ic">⚠️</div><h3>24/7 emergencies</h3><p>Burst pipe at midnight? We answer the phone and come out.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Replace this photo: swap the Unsplash URL for your own image -->
+<section class="band">
+  <div class="wrap reveal">
+    <h2>Honest work from a local you can trust</h2>
+    <p>We treat your home like our own. When you call, you get us, not a call center.</p>
+  </div>
+</section>
+
+<section class="sec why" id="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eb">Why choose us</div>
+      <h2>No surprises, start to finish</h2>
+    </div>
+    <div class="why-grid">
+      <div class="item reveal"><div class="ck">✓</div><div><h3>Up-front, flat pricing</h3><p>You know the cost before we start. No surprise bills.</p></div></div>
+      <div class="item reveal"><div class="ck">✓</div><div><h3>On time, every time</h3><p>We call when we are on the way and we respect your schedule.</p></div></div>
+      <div class="item reveal"><div class="ck">✓</div><div><h3>Licensed, insured, guaranteed</h3><p>Our work is backed by a workmanship guarantee.</p></div></div>
+      <div class="item reveal"><div class="ck">✓</div><div><h3>We clean up after ourselves</h3><p>You will not even know we were there, except the problem is gone.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eb">Reviews</div>
+      <h2>What your neighbors say</h2>
+    </div>
+    <div class="revs">
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Fixed our water heater on a Sunday and charged exactly what they quoted. Polite, fast, and cleaned up after. Saving this number."</p><div class="who">Dana R. <small>Local customer</small></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Had a leak under the sink and they came same day. Told me the price up front, no games. This is who I call from now on."</p><div class="who">Marcus T. <small>Local customer</small></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>"Honest and professional. They could have sold me a whole new system but fixed what I had instead. Hard to find these days."</p><div class="who">Priya N. <small>Local customer</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Got a plumbing problem? Let's fix it.</h2>
+    <p>Call or text for a free estimate. We answer fast and we don't charge to come take a look.</p>
+    <a href="#contact" class="btn">Get a free quote</a>
+    <div class="ph">or <a href="#contact">request your free quote</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="display:flex;align-items:center;gap:11px;font-family:var(--head);font-weight:800;font-size:1.3rem"><span style="width:36px;height:36px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center">⚓</span> Saunders Plumbing</div>
+        <p style="max-width:280px">Licensed, insured plumbers serving your area. Same-day service and 24/7 emergencies.</p>
+      </div>
+      <div class="fcol"><h4>Services</h4><a href="#services">Drain cleaning</a><a href="#services">Water heaters</a><a href="#services">Leak repair</a><a href="#services">Emergencies</a></div>
+      <div class="fcol"><h4>Company</h4><a href="#why">Why us</a><a href="#reviews">Reviews</a><a href="#contact">Free estimate</a><a href="#contact">Get a free quote</a></div>
+    </div>
+    <div class="fbot">
+      <div>© 2026 Saunders Plumbing Serving your area and nearby.</div>
+      <div class="vendly">Built with a <b>Vendly</b> template</div>
+      <div class="vendly" style="font-weight:500">Preview mockup designed by <b>Vendly</b> for Saunders Plumbing. vendly.ink</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -8% 0px'});
+  els.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*55)+'ms';io.observe(el)});
+  // safety net: anything not yet revealed becomes visible so no content can stay hidden
+  setTimeout(()=>els.forEach(el=>el.classList.add('in')),2000);
+}else els.forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
